@@ -41,7 +41,6 @@ Analisis ini akan menghasilkan manfaat yang significan terhadap bisnis dan ekono
 1. *Data Ghaterring*. Dataset diambil dari kaggle menggunakan Kaggel API kemudian diunduh dengan perintah python. Dataset yang digunakan adalah [Kaggle Telco Customer Churn](https://www.kaggle.com/datasets/blastchar/telco-customer-churn).
 2. *Data Assessing atau* penilaian pada data dilakukan dengan :
     - Menampilkan info dari dataframe untuk melihat gambaran tetang jumlah *non-null values* dari setiap kolom dalam dataframe. Hal ini membantu dalam memahami struktur data dan identifikasi awal terhadap kolom-kolom yang memiliki *missing values*. 
-    ![info dari dataframe](https://private-user-images.githubusercontent.com/142133715/340571524-80cd8088-3e3b-4336-8f3d-da66efe013c9.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTg2OTQwNTcsIm5iZiI6MTcxODY5Mzc1NywicGF0aCI6Ii8xNDIxMzM3MTUvMzQwNTcxNTI0LTgwY2Q4MDg4LTNlM2ItNDMzNi04ZjNkLWRhNjZlZmUwMTNjOS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNjE4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDYxOFQwNjU1NTdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0xMzU2N2E5Y2E2M2ZjMTUxZTJjYzJiYmI5NjIwNWIwMDNhZmVhMjlhYjUxMTc0YjczZGQ1NTJjZDU2OThlZmM5JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.P0zPfcZmyON_M8V7OSHm7AydHwN5GACqRfGcFTayJQQ)
     - Melihat jumlah *missing value* dilakukan dengan tujuan mengetahui jumlah nilai yang hilang disetiap kolom, sehingga dapat diputuskan untuk menghapus kolom/row sebelum dianalisis lebih lanjut. tidak didapatkan nilai missin value pada data
     - Melihat jumlah *duplicates* dilakukan untuk jumlah data yang duplikat penting untuk memastikan integritas data. Duplikasi yang ditemukan akan dihapus agar tidak mempengaruhi analisis dan model prediksi yang akan dibuat. tidak didapatkan data duplicate.
     - Melihat lebih jelas nilai variabel kategorikal dengan format selain Boolean atau *Yes* dan *No*. proses ini dilakukan untuk mengetahui variasi dalam variabel kategorikal membantu dalam memahami distribusi data serta merencanakan langkah *encoding* yang tepat untuk analisis selanjutnya.
@@ -57,37 +56,44 @@ Analisis ini akan menghasilkan manfaat yang significan terhadap bisnis dan ekono
         - Variabel MonthlyCharges menunjukkan biaya bulanan yang dibayarkan oleh pelanggan. Pada histogram Pelanggan yang churn (Yes) memiliki kecenderungan berada pada rentang biaya bulanan yang lebih tinggi, terutama antara 70 hingga 100 dan Pelanggan yang tidak churn (No) memiliki distribusi biaya bulanan yang lebih merata, tetapi terdapat puncak yang signifikan pada biaya bulanan yang rendah sekitar 20 hingga 30.
         - Variabel TotalCharges menunjukkan total biaya yang dibayarkan oleh pelanggan selama berlangganan. Pada histogram  Pelanggan yang churn (Yes) cenderung memiliki TotalCharges yang rendah, yang berkorelasi dengan tenure yang pendek. Pelanggan yang tidak churn (No) memiliki distribusi TotalCharges yang lebih lebar dan merata, menunjukkan bahwa mereka telah berlangganan lebih lama dan membayar total biaya yang lebih tinggi.
     - *variabel categorical* dengan *bar chart* ini digunakan untuk melihat jumlah data dari masing-masing kelas dalam kolum. ini dapat memberikan wawasan tentang preferensi pelanggan terhadap berbagai layanan yang ditawarkan dan menunjukkan area di mana perusahaan dapat fokus untuk meningkatkan penggunaan layanan tambahan guna meningkatkan kepuasan pelanggan dan mengurangi churn.
+      
     Gambar 2. Vsisualisasi pelanggan
     ![pelanggan](https://private-user-images.githubusercontent.com/142133715/340573127-f1a0b0b0-68d1-4b68-ab9b-2e1c966b36b5.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTg2OTQ0MTAsIm5iZiI6MTcxODY5NDExMCwicGF0aCI6Ii8xNDIxMzM3MTUvMzQwNTczMTI3LWYxYTBiMGIwLTY4ZDEtNGI2OC1hYjliLTJlMWM5NjZiMzZiNS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNjE4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDYxOFQwNzAxNTBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lMjY5M2NmYTM3ODljMjA1OWRmNjI0MDE0ZTE1M2QxMTQwMjU0NzZiY2NjYzM0NWI5MWY4YTk0ZmExZGI0MDBmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.lGNnsg83DaswSaP0-mkQca75G-8FitFJpJm3fil5Sko)
+   
     Gambar 3. Visualisasi Layanan
     ![layanan](https://private-user-images.githubusercontent.com/142133715/340573359-d9086c8e-6e83-4ff4-9ec0-d3f3c9da3b7d.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTg2OTQ0NzAsIm5iZiI6MTcxODY5NDE3MCwicGF0aCI6Ii8xNDIxMzM3MTUvMzQwNTczMzU5LWQ5MDg2YzhlLTZlODMtNGZmNC05ZWMwLWQzZjNjOWRhM2I3ZC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNjE4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDYxOFQwNzAyNTBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0zZmYyODJkOGViMWRlNThjMDNkOGU4MGViMjk3YTI0YmQxZWU4NGE5MDY1Y2IwMGU4M2VhODZlN2MxMDM4NDM0JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.AQNzg0AIn6Zp9tQ8Yt5hu_TvFIabdCDelfRSEtTwI58)
+   
     Gambar 4. Visualisasi info billing
-    ![billing](https://private-user-images.githubusercontent.com/142133715/340573665-eb180783-c79a-46b8-b697-704d455496ed.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTg2OTQ1MTAsIm5iZiI6MTcxODY5NDIxMCwicGF0aCI6Ii8xNDIxMzM3MTUvMzQwNTczNjY1LWViMTgwNzgzLWM3OWEtNDZiOC1iNjk3LTcwNGQ0NTU0OTZlZC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNjE4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDYxOFQwNzAzMzBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1kMWVkODA0ODZmM2I3ZWY3NTY0NjZhY2IwNDc0Mzc1MDJhODM4YmYyZGVhMmYxYzU5ZmFjNGE1NzE2MjMzMzA4JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.QslzOrs8yj4o498iEbGfP9V_BAqal5zHuMGX2nSkEEA)
+    ![billing]()
 
-    setelah dilakukan visualisasi dapat simpulkan :
-        - Gender female dan male memiliki jumlah hampir sama yaitu Male:3555 dan female 3488
-        - pelangganggan mayoritas bukan warga senior dengan jumlah ya 1142 dan no 5901
-        - pelanggan yang memiliki parter dan tidak cukup seimbang
-        - lebih dari 1/2 pelanggan tidak memiliki tanggungan
-        - sebagian besar pelanggan menggunakan layanan telepon dengan jumlah lebih dari 6000 dan pelanggan yang tidak menggunakan telepon dibawah 1000
-        - ekitar 1.000 pelanggan tidak menggunakan layanan telepon sama sekali. Lebih dari 2.500 pelanggan menggunakan layanan multiple lines. Sekitar 3.000 pelanggan tidak menggunakan layanan multiple lines meskipun mereka memiliki layanan telepon.
-        - 2000 pelanggan menggunakan layanan DSL. Lebih dari 3.000 pelanggan menggunakan layanan fiber optic, menunjukkan preferensi yang kuat untuk layanan internet yang lebih cepat. Sekitar 1.500 pelanggan tidak menggunakan layanan internet sama sekali.
-        -  3.000 pelanggan tidak menggunakan layanan keamanan online. 2.000 pelanggan menggunakan layanan keamanan online. Sekitar 1.500 pelanggan tidak memiliki layanan internet, sehingga tidak menggunakan layanan keamanan online.
-        -  3.000 pelanggan tidak menggunakan layanan backup online. 2.000 pelanggan menggunakan layanan backup online. Sekitar 1.500 pelanggan tidak memiliki layanan internet, sehingga tidak menggunakan layanan backup online.
-        -  3.000 pelanggan tidak menggunakan layanan perlindungan perangkat. Sekitar 2.000 pelanggan menggunakan layanan perlindungan perangkat. Sekitar 1.500 pelanggan tidak memiliki layanan internet, sehingga tidak menggunakan layanan perlindungan perangkat.
-        - Lebih dari 3.000 pelanggan tidak menggunakan layanan dukungan teknis. ekitar 2.000 pelanggan menggunakan layanan dukungan teknis. Sekitar 1.500 pelanggan tidak memiliki layanan internet, sehingga tidak menggunakan layanan dukungan teknis.
-        - 2.500 pelanggan tidak menggunakan layanan streaming TV. Sekitar 2.500 pelanggan menggunakan layanan streaming TV. Sekitar 1.500 pelanggan tidak memiliki layanan internet, sehingga tidak menggunakan layanan streaming TV.
-        - Sekitar 2.500 pelanggan tidak menggunakan layanan streaming film. Sekitar 2.500 pelanggan menggunakan layanan streaming film. Sekitar 1.500 pelanggan tidak memiliki layanan internet, sehingga tidak menggunakan layanan streaming film.
-        - lebih dari 3000 pelanggan dengan kontrak bulan ke bulan. kurang dari 1500 pelanggan dengan kontak 1 tahun dan lebih dari 1500 pelanggan dengan kontrak 2 tahun
-        - mayoritas pelanggan memilih tagihan tanpa kertas lebih dari 4000. sedangkan kurang dari 3000 pelanggan memilih tagihan dengan kertas.
-        - metode pilihan pelanggan untuk pembayaran adalah Electronic check dengan jumlah 2365. dan masing-masing metode lain yaitu Maile check, Bank transfer, Credit card dengan total lebih dari 1500.
-    - korelasi *variabel numeric* dengan *Heatmap* untuk melihat fitur yang paling mempengaruhi *churn* pelanggan.
-    Gambar 5. Heatmap
-    ![heatmap](https://private-user-images.githubusercontent.com/142133715/340573904-7caf8dff-33e7-4869-ad4a-c4f709b4e639.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTg2OTQ1NTYsIm5iZiI6MTcxODY5NDI1NiwicGF0aCI6Ii8xNDIxMzM3MTUvMzQwNTczOTA0LTdjYWY4ZGZmLTMzZTctNDg2OS1hZDRhLWM0ZjcwOWI0ZTYzOS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNjE4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDYxOFQwNzA0MTZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lZWZiNmU3OWI1NjliMDJkMGIzNDg2NmY5ZTIzNmU1ZDE1MWY1YjdiOWRhYjUwYWI4NjNlYzk1MWU0ZGU0MjljJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.7peZhQXB-Ho2Xuzp-nN8mQHZQxx35HZd6qE9xuzHL6I)
-    setelah dilakukan visualisasi dapat disimpulkan :
-        - pada variabel tenure Korelasi negatif dengan churn (-0.35) menunjukkan bahwa meningkatkan durasi berlangganan pelanggan dapat mengurangi churn. Program loyalitas atau insentif untuk memperpanjang durasi berlangganan dapat efektif.
-        - variabel MonthlyCharges Korelasi positif lemah dengan churn (0.19) menunjukkan bahwa biaya bulanan yang lebih tinggi mungkin sedikit meningkatkan risiko churn, tetapi tidak signifikan. Menawarkan paket harga yang sesuai dengan nilai yang diberikan dapat membantu mengurangi churn.
-        - dan variabel TotalCharge orelasi negatif lemah dengan churn (-0.20) menunjukkan bahwa pelanggan yang telah membayar lebih banyak secara keseluruhan cenderung lebih setia. Fokus pada pelanggan yang telah menunjukkan komitmen finansial bisa menjadi strategi untuk retensi.
+setelah dilakukan visualisasi dapat simpulkan :
+
+   - Gender female dan male memiliki jumlah hampir sama yaitu Male:3555 dan female 3488
+   - pelangganggan mayoritas bukan warga senior dengan jumlah ya 1142 dan no 5901
+   - pelanggan yang memiliki parter dan tidak cukup seimbang
+   - lebih dari 1/2 pelanggan tidak memiliki tanggungan
+   - sebagian besar pelanggan menggunakan layanan telepon dengan jumlah lebih dari 6000 dan pelanggan yang tidak menggunakan telepon dibawah 1000
+   - Sekitar 1.000 pelanggan tidak menggunakan layanan telepon sama sekali. Lebih dari 2.500 pelanggan menggunakan layanan multiple lines. Sekitar 3.000 pelanggan tidak menggunakan layanan multiple lines meskipun mereka memiliki layanan telepon.
+   - 2000 pelanggan menggunakan layanan DSL. Lebih dari 3.000 pelanggan menggunakan layanan fiber optic, menunjukkan preferensi yang kuat untuk layanan internet yang lebih cepat. Sekitar 1.500 pelanggan tidak menggunakan layanan internet sama sekali.
+   - 3.000 pelanggan tidak menggunakan layanan keamanan online. 2.000 pelanggan menggunakan layanan keamanan online. Sekitar 1.500 pelanggan tidak memiliki layanan internet, sehingga tidak menggunakan layanan keamanan online.
+   - 3.000 pelanggan tidak menggunakan layanan backup online. 2.000 pelanggan menggunakan layanan backup online. Sekitar 1.500 pelanggan tidak memiliki layanan internet, sehingga tidak menggunakan layanan backup online.
+   - 3.000 pelanggan tidak menggunakan layanan perlindungan perangkat. Sekitar 2.000 pelanggan menggunakan layanan perlindungan perangkat. Sekitar 1.500 pelanggan tidak memiliki layanan internet, sehingga tidak menggunakan layanan perlindungan perangkat.
+   - Lebih dari 3.000 pelanggan tidak menggunakan layanan dukungan teknis. ekitar 2.000 pelanggan menggunakan layanan dukungan teknis. Sekitar 1.500 pelanggan tidak memiliki layanan internet, sehingga tidak menggunakan layanan dukungan teknis.
+   - 2.500 pelanggan tidak menggunakan layanan streaming TV. Sekitar 2.500 pelanggan menggunakan layanan streaming TV. Sekitar 1.500 pelanggan tidak memiliki layanan internet, sehingga tidak menggunakan layanan streaming TV.
+   - Sekitar 2.500 pelanggan tidak menggunakan layanan streaming film. Sekitar 2.500 pelanggan menggunakan layanan streaming film. Sekitar 1.500 pelanggan tidak memiliki layanan internet, sehingga tidak menggunakan layanan streaming film.
+   - lebih dari 3000 pelanggan dengan kontrak bulan ke bulan. kurang dari 1500 pelanggan dengan kontak 1 tahun dan lebih dari 1500 pelanggan dengan kontrak 2 tahun
+   - mayoritas pelanggan memilih tagihan tanpa kertas lebih dari 4000. sedangkan kurang dari 3000 pelanggan memilih tagihan dengan kertas.
+   - metode pilihan pelanggan untuk pembayaran adalah Electronic check dengan jumlah 2365. dan masing-masing metode lain yaitu Maile check, Bank transfer, Credit card dengan total lebih dari 1500.
+   - korelasi *variabel numeric* dengan *Heatmap* untuk melihat fitur yang paling mempengaruhi *churn* pelanggan.
+  
+Gambar 5. Heatmap
+![Heatmap]()
+   
+setelah dilakukan visualisasi dapat disimpulkan :
+
+- pada variabel tenure Korelasi negatif dengan churn (-0.35) menunjukkan bahwa meningkatkan durasi berlangganan pelanggan dapat mengurangi churn. Program loyalitas atau insentif untuk memperpanjang durasi berlangganan dapat efektif.
+- variabel MonthlyCharges Korelasi positif lemah dengan churn (0.19) menunjukkan bahwa biaya bulanan yang lebih tinggi mungkin sedikit meningkatkan risiko churn, tetapi tidak signifikan. Menawarkan paket harga yang sesuai dengan nilai yang diberikan dapat membantu mengurangi churn.
+- dan variabel TotalCharge orelasi negatif lemah dengan churn (-0.20) menunjukkan bahwa pelanggan yang telah membayar lebih banyak secara keseluruhan cenderung lebih setia. Fokus pada pelanggan yang telah menunjukkan komitmen finansial bisa menjadi strategi untuk retensi.
 
 ### Variabel-variabel pada Kaggle Telco Customer Churn dataset adalah sebagai berikut:
 Dataset "*Telco Customer Churn*" dari Kaggle berisi data pelanggan dari perusahaan telekomunikasi, yang mencakup berbagai informasi demografis, penggunaan layanan, dan rincian penagihan. Data ini digunakan untuk menganalisis dan memprediksi apakah seorang pelanggan akan berhenti berlangganan (churn) atau tidak.
@@ -183,9 +189,10 @@ Data akan dibagi menjadi data latih (train) dan data uji (test) dengan perbandin
 Berdasarkan hasil pelatihan dan evaluasi, model terbaik untuk menangani masalah klasifikasi Churn pada dataset ini adalah *Gradient Boosting Machines*(GBM). GBM telah menunjukkan hasil akurasi yang lebih baik dari dua algoritma lainnya dan evaluasi lainnya yang juga unggul.
 
 ## Evaluation
-### Evaluasi Model
 1. Tabel Evaluasi Model
+
 Tabel 1. Hasil Evaluasi 
+
 | Model              | Accuracy | F1-score | Precision | Recall  |
 |--------------------|----------|----------|-----------|---------|
 | Gradient Boosting  | 0.818    | 0.810    | 0.812     | 0.818   |
@@ -205,7 +212,9 @@ Berdasarkan tabel evaluasi di atas, dapat dilihat bahwa model *Gradient Boosting
     - Penyelesaian Problem: Model GBM telah memberikan hasil yang signifikan dalam menyelesaikan masalah klasifikasi churn pelanggan. Dengan menggunakan metrik yang relevan seperti akurasi, precision, recall, dan F1-score, evaluasi model ini memberikan pemahaman yang lebih dalam tentang kinerja dan efektivitas model dalam konteks dataset dan problem statement yang ada.
     - Dengan demikian, model Gradient Boosting Machine (GBM) direkomendasikan untuk diterapkan dalam aplikasi praktis untuk meningkatkan retensi pelanggan berdasarkan prediksi churn.
 
-# Referensi
+# Reference
 [1] Rahayu, S., & Faulina, S. T. (2022). Pengaruh Digital Customer Experience dalam Menciptakan Customer Satisfaction dan Customer Loyalty di Era Digital. Jesya (Jurnal Ekonomi Dan Ekonomi Syariah), 5(1), 1-13.
+
 [2] Jumawar, E., & Nurmartian, E. (2021). Pengaruh Customer Experience dan Customer Value terhadap Customer Loyalty Indihome (Pada Pelanggan Indihome Area Gegerkalong). Journal Competency of Business, 5(02), 102-111.
+
 [3] RM, G. (2020). Prediction of customer plan using churn analysis for telecom industry. Recent Advances in Computer Science and Communications (Formerly: Recent Patents on Computer Science), 13(5), 926-929.
