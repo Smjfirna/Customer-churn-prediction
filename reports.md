@@ -58,13 +58,13 @@ Analisis ini akan menghasilkan manfaat yang significan terhadap bisnis dan ekono
     - *variabel categorical* dengan *bar chart* ini digunakan untuk melihat jumlah data dari masing-masing kelas dalam kolum. ini dapat memberikan wawasan tentang preferensi pelanggan terhadap berbagai layanan yang ditawarkan dan menunjukkan area di mana perusahaan dapat fokus untuk meningkatkan penggunaan layanan tambahan guna meningkatkan kepuasan pelanggan dan mengurangi churn.
       
     Gambar 2. Vsisualisasi pelanggan
-    ![pelanggan](https://private-user-images.githubusercontent.com/142133715/340573127-f1a0b0b0-68d1-4b68-ab9b-2e1c966b36b5.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTg2OTQ0MTAsIm5iZiI6MTcxODY5NDExMCwicGF0aCI6Ii8xNDIxMzM3MTUvMzQwNTczMTI3LWYxYTBiMGIwLTY4ZDEtNGI2OC1hYjliLTJlMWM5NjZiMzZiNS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNjE4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDYxOFQwNzAxNTBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lMjY5M2NmYTM3ODljMjA1OWRmNjI0MDE0ZTE1M2QxMTQwMjU0NzZiY2NjYzM0NWI5MWY4YTk0ZmExZGI0MDBmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.lGNnsg83DaswSaP0-mkQca75G-8FitFJpJm3fil5Sko)
+    ![pelanggan](images/Customer.png)
    
     Gambar 3. Visualisasi Layanan
-    ![layanan](https://private-user-images.githubusercontent.com/142133715/340573359-d9086c8e-6e83-4ff4-9ec0-d3f3c9da3b7d.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTg2OTQ0NzAsIm5iZiI6MTcxODY5NDE3MCwicGF0aCI6Ii8xNDIxMzM3MTUvMzQwNTczMzU5LWQ5MDg2YzhlLTZlODMtNGZmNC05ZWMwLWQzZjNjOWRhM2I3ZC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNjE4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDYxOFQwNzAyNTBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0zZmYyODJkOGViMWRlNThjMDNkOGU4MGViMjk3YTI0YmQxZWU4NGE5MDY1Y2IwMGU4M2VhODZlN2MxMDM4NDM0JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.AQNzg0AIn6Zp9tQ8Yt5hu_TvFIabdCDelfRSEtTwI58)
+    ![layanan](images/layanan.png)
    
     Gambar 4. Visualisasi info billing
-    ![billing]()
+    ![billing](images/billing.png)
 
 setelah dilakukan visualisasi dapat simpulkan :
 
@@ -87,7 +87,7 @@ setelah dilakukan visualisasi dapat simpulkan :
    - korelasi *variabel numeric* dengan *Heatmap* untuk melihat fitur yang paling mempengaruhi *churn* pelanggan.
   
 Gambar 5. Heatmap
-![Heatmap]()
+![Heatmap](images/heatmap.png)
    
 setelah dilakukan visualisasi dapat disimpulkan :
 
